@@ -39,15 +39,6 @@
 
             <div class="col-10 form-group" style="text-align: center">
                 <label><b>Select Model:</b></label>
-                <select class="selectpicker form-control" id="company" name="company" required="1">
-                    {% for model in car_models %}
-                    <option value="{{model }}">{{ model }}</option>
-                  {% endfor %}"
-                </select>
-            </div>
-
-            <div class="col-10 form-group" style="text-align: center">
-                <label><b>Select Model:</b></label>
                 <select class="selectpicker form-control" id="car_model" name="car_model" required="1">
                     <option value=""></option>"
                 </select>
@@ -87,10 +78,11 @@
 <script>
 
 
-  function load_car_models(this.id, car_model_id)
+  function load_car_models(company_id, car_model_id)
   {
-    var company = document.getElementById(this.id);
+    var company = document.getElementById(company_id);
     var car_model = document.getElementById(car_model_id);
+    car_model.options.length = 0;
     
       {% for company in companies %}
 
