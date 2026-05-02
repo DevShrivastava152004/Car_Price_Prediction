@@ -47,24 +47,33 @@
              <div class="col-10 form-group" style="text-align: center">
                 <label><b>Select Year of Purchase:</b></label>
                 <select class="selectpicker form-control" id="year" name="year" required="1">
-                    <option value=""></option>"
+                   {% for year in years %}
+                    
+                   
+                   <option value="{{year }}">{{ year }}</option>
+                  {% endfor %}
+                    
                 </select>
             </div>
 
             <div class="col-10 form-group" style="text-align: center">
                 <label><b>Select Fuel Type:</b></label>
                 <select class="selectpicker form-control" id="fuel_type" name="fuel_type" required="1">
-                    <option value=""></option>"
+                    {% for fuel_type in fuel_types %}
+                    
+                   
+                   <option value="{{fuel_type }}">{{ fuel_type }}</option>
+                  {% endfor %}
                 </select>
             </div>
 
             <div class="col-10 form-group" style="text-align: center">
                 <label><b>Enter Number of Kilometers travelled:</b></label>
-                <input class = "form-control" type="text" id="kilo_driven" name="kilo_driven" placeholder = "Enter no. of Kilometer travelled">
+                <input class ="form-control" type="text" id="kilo_driven" name="kilo_driven" placeholder = "Enter no. of Kilometer travelled">
             </div>
 
-            <div class="col-10 form-group" style="text-align= center">
-                <button class="btn-primary form-control" onclick="">Predict Price</button>
+            <div class="col-10 form-group" style="text-align: center">
+                <button class="btn btn-primary form-control" onclick="send_data()">Predict Price</button>
             </div>
             
              
@@ -85,7 +94,7 @@
     car_model.options.length = 0;
     
       {% for company in companies %}
-
+ 
       if(company.value == "{{company}}")
       {
         {% for model in car_models %}
@@ -103,7 +112,23 @@
       {% endfor %}
   }
 
+  function form_handler(event)
+  {
+    event.preventDefault();
+  }
 
+  function send_data()
+  {
+    document.querySelector("form").addEventListener('submit', form_handler); 
+
+
+    var fdd = new FormData(document,querySelector('form'));
+
+
+    var
+    // suppress form default behaviour
+    // send and recieeve data to predict
+  }
 
 </script>
 
